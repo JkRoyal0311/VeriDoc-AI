@@ -42,6 +42,7 @@ export function ChatInterface({
   ingestedInfo,
   onSendMessage,
   onStopGeneration,
+  onFilesAdded,
 }: ChatInterfaceProps) {
   const [input, setInput] = useState("");
   const messagesEndRef = useRef<HTMLDivElement>(null);
