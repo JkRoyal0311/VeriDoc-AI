@@ -1,7 +1,7 @@
-# DocuScholar AI
+# InsightPDF
 > **Intelligent Document Q&A, Page Citations & Tiered Assessment System**
 
-![DocuScholar AI Tech Stack](https://img.shields.io/badge/Frontend-Next.js%2014%2B%20%7C%20React%2018-blue)
+![InsightPDF Tech Stack](https://img.shields.io/badge/Frontend-Next.js%2014%2B%20%7C%20React%2018-blue)
 ![Styling](https://img.shields.io/badge/UI-Tailwind%20CSS%20v4%20%7C%20Framer%20Motion-purple)
 ![Backend](https://img.shields.io/badge/Backend-FastAPI%20%7C%20Python%203.10%2B-emerald)
 ![AI Model](https://img.shields.io/badge/LLM-Google%20Gemini%202.5%20Pro-amber)
@@ -10,19 +10,19 @@
 
 ## 🌟 Overview
 
-**DocuScholar AI** is an advanced Retrieval-Augmented Generation (RAG) platform designed for scholars, researchers, educators, and students. By combining FastAPI vector indexation with Google Gemini 2.5 Pro and Next.js 14, DocuScholar AI enables users to upload complex academic PDFs, query text instantly, extract verified page citations, and generate structured assessment test papers.
+**InsightPDF** is an advanced Retrieval-Augmented Generation (RAG) platform designed for scholars, researchers, educators, and students. By combining FastAPI vector indexation with Google Gemini 2.5 Pro and Next.js 14, InsightPDF enables users to upload multiple complex academic PDFs, query text instantly, extract verified page citations, and generate structured assessment test papers.
 
 ---
 
 ## ✨ Key Features
 
-- 📑 **Instant PDF Ingestion & Vector Indexing:** Fast chunking and vector embedding of uploaded documents powered by PyPDF and vector search.
+- 📑 **Instant Multi-PDF Ingestion & Vector Indexing:** Fast chunking and vector embedding of multiple uploaded documents powered by PyPDF and vector search. Add more files at any time during the chat!
 - 📌 **Automatic Verified Page Citations:** Every AI response includes exact `[Source: Page X]` citation pills grounded in document text.
-- 📝 **Tiered Assessment Generation:** One-click generation of practice question papers categorized into Easy, Medium, and Hard difficulty levels.
-- 💾 **Export to Markdown:** Instant export of AI generated summaries, study notes, and test papers to clean `.md` files.
-- 🎭 **3D Glassmorphic UI & Seamless Dark/Light Mode:** Next-gen visual interface with 3D spatial perspective, Framer Motion tilt-fade card entrances, elevated prompt chips, and a project-wide theme switch.
+- 📝 **Customizable Assessment Generation:** One-click generation of practice question papers. The AI explicitly asks whether you prefer Multiple Choice Questions (MCQs) or descriptive questions.
+- 💾 **Export to PDF:** Instant export of AI-generated summaries, study notes, and test papers directly to high-quality `.pdf` files.
+- 🎨 **Clean & Professional Light UI:** A sleek, whitish UI design tailored for prolonged reading, focused research, and high readability.
 - ⚡ **Interactive Message Action Toolbars:**
-  - **AI Response Cards:** Thumbs Up / Thumbs Down feedback, Regenerate response, Copy raw content, Download `.md`, and More options.
+  - **AI Response Cards:** Download as PDF, Copy raw content.
   - **User Message Bubbles:** Hover action bar with Copy and Edit (pencil) to resend modified queries.
 - ⏹️ **Streaming Generation & Abort Control:** Server-Sent Events (SSE) real-time response streaming with a Stop/Cancel button.
 - 🗂️ **Local Chat History & Session Management:** Session persistence powered by `localStorage` with history drawer and new chat creation.
@@ -32,7 +32,7 @@
 ## 🏗️ Architecture & Project Structure
 
 ```
-AI-Q&A System/
+InsightPDF/
 ├── backend/
 │   ├── main.py                  # FastAPI Application & SSE endpoints (/upload, /chat)
 │   ├── requirements.txt          # Python dependencies
@@ -51,10 +51,10 @@ AI-Q&A System/
     │   ├── app/
     │   │   ├── layout.tsx       # Root layout & theme provider
     │   │   ├── page.tsx         # Main application page
-    │   │   └── globals.css      # Custom styles & Tailwind v4 dark mode configuration
+    │   │   └── globals.css      # Custom styles & Light theme CSS configuration
     │   └── components/
-    │       ├── SplitLayout.tsx  # Dual-pane layout & sidebar theme toggle
-    │       ├── ChatInterface.tsx# Message history, 3D response cards & action toolbars
+    │       ├── SplitLayout.tsx  # Dual-pane layout
+    │       ├── ChatInterface.tsx# Message history, response cards & action toolbars
     │       ├── PDFUploader.tsx  # Dropzone upload & document indexing summary widget
     │       └── AIStatusIndicator.tsx # AI state status indicator (searching/thinking)
 ```
@@ -117,8 +117,8 @@ npm run dev
 ## 🛰️ API Reference
 
 ### `POST /upload`
-Uploads and indexes a PDF document into the vector database.
-- **Request:** `FormData` containing `file` (`.pdf`).
+Uploads and indexes PDF documents into the vector database. Can process single or multiple files in one batch.
+- **Request:** `FormData` containing `files` (`.pdf`).
 - **Response:**
   ```json
   {
@@ -133,21 +133,14 @@ Streams real-time response data using Server-Sent Events (SSE).
 - **Request Body:**
   ```json
   {
-    "message": "Summarize key concepts in Chapter 2"
+    "message": "Summarize key concepts in Chapter 2",
+    "history": []
   }
   ```
 - **Response:** SSE Stream emitting events:
   - `data: {"type": "state", "state": "searching"}`
   - `data: {"type": "chunk", "content": "..."}`
   - `data: {"type": "done"}`
-
----
-
-## 🎨 Design System
-
-- **Primary Colors:** Deep Indigo (`#4f46e5`), Violet (`#7c3aed`), Slate Dark (`#0f172a`), Emerald Accent (`#10b981`).
-- **Typography:** Geist Sans & Geist Mono.
-- **Animations:** Framer Motion 3D perspective transforms & micro-interactions.
 
 ---
 
