@@ -49,16 +49,16 @@ export function ChatMessage({
 
   return (
     <div className="flex justify-end w-full">
-      <div className="relative group max-w-[88%] sm:max-w-[82%] bg-gradient-to-r from-[#EA580C] via-amber-600 to-[#F97316] text-slate-900 shadow-md rounded-3xl rounded-tr-sm p-5 border border-orange-400/30">
-        <p className="whitespace-pre-wrap leading-relaxed text-sm sm:text-base font-medium text-slate-900">
+      <div className="relative group max-w-[88%] sm:max-w-[82%] bg-gradient-to-r from-[#EA580C] via-amber-600 to-[#F97316] text-[#282438] shadow-md rounded-3xl rounded-tr-sm p-5 border border-orange-400/30">
+        <p className="whitespace-pre-wrap leading-relaxed text-sm sm:text-base font-medium text-[#282438]">
           {message.content}
         </p>
 
-        <div className="absolute -bottom-3 right-4 opacity-0 group-hover:opacity-100 transition-all z-10 flex items-center space-x-1 bg-white/90 backdrop-blur-md rounded-full px-2.5 py-1 border border-orange-200 shadow-sm">
+        <div className="absolute -bottom-3 right-4 opacity-0 group-hover:opacity-100 transition-all z-10 flex items-center space-x-1 bg-[#FAF9FC]/90 backdrop-blur-md rounded-full px-2.5 py-1 border border-orange-200 shadow-sm">
           <button
             onClick={handleCopyUser}
             title="Copy message"
-            className="p-1 text-slate-500 hover:text-orange-600 transition-colors cursor-pointer"
+            className="p-1 text-[#282438]/70 hover:text-orange-600 transition-colors cursor-pointer"
           >
             {copiedUser ? <Check className="w-3 h-3 text-orange-600" /> : <Copy className="w-3 h-3" />}
           </button>
@@ -67,7 +67,7 @@ export function ChatMessage({
             <button
               onClick={() => onEditUserMessage(message.content)}
               title="Edit & Resend message"
-              className="p-1 text-slate-500 hover:text-orange-600 transition-colors cursor-pointer"
+              className="p-1 text-[#282438]/70 hover:text-orange-600 transition-colors cursor-pointer"
             >
               <Pencil className="w-3 h-3" />
             </button>

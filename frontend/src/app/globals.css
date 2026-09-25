@@ -2,15 +2,15 @@
 
 @layer base {
   :root {
-    --bg-main: #f8fafc;
-    --bg-sidebar: #ffffff;
-    --bg-card: #f1f5f9;
-    --bg-card-hover: #e2e8f0;
-    --text-primary: #0f172a;
-    --text-muted: #64748b;
-    --border-color: rgba(0, 0, 0, 0.1);
-    --cyan-primary: #0284c7;
-    --gold-primary: #d97706;
+    --bg-main: #FAF9FC;
+    --bg-sidebar: #FAF9FC;
+    --bg-card: #E5E0F4;
+    --bg-card-hover: #E5E0F4;
+    --text-primary: #282438;
+    --text-muted: #282438;
+    --border-color: rgba(105, 86, 165, 0.1);
+    --primary: #6956A5;
+    --accent: #9A89D0;
   }
 }
 
@@ -33,57 +33,57 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(56, 189, 248, 0.25);
+  background: rgba(154, 137, 208, 0.5); /* Accent */
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(56, 189, 248, 0.5);
+  background: rgba(105, 86, 165, 0.8); /* Primary */
 }
 
 /* Glassmorphism Light Mode Utilities */
 .glass-panel {
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  background: #FAF9FC;
+  border: 1px solid rgba(105, 86, 165, 0.1);
+  box-shadow: 0 4px 20px rgba(105, 86, 165, 0.05);
 }
 
 .glass-card {
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  background: #FAF9FC;
+  border: 1px solid rgba(105, 86, 165, 0.15);
+  box-shadow: 0 4px 16px rgba(105, 86, 165, 0.05);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card:hover {
-  background: #f1f5f9;
-  border-color: rgba(2, 132, 199, 0.4);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  background: #E5E0F4;
+  border-color: rgba(105, 86, 165, 0.4);
+  box-shadow: 0 8px 24px rgba(105, 86, 165, 0.15);
 }
 
 .glass-input {
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  background: #FAF9FC;
+  border: 1px solid rgba(105, 86, 165, 0.2);
+  box-shadow: 0 2px 10px rgba(105, 86, 165, 0.05);
   transition: all 0.3s ease;
 }
 
 .glass-input:focus-within {
-  border-color: #0284c7;
-  box-shadow: 0 0 20px rgba(2, 132, 199, 0.15);
+  border-color: #6956A5;
+  box-shadow: 0 0 20px rgba(105, 86, 165, 0.15);
 }
 
 /* Glow Utilities */
 .glow-cyan {
-  box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+  box-shadow: 0 0 20px rgba(105, 86, 165, 0.3);
 }
 
 .glow-amber {
-  box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+  box-shadow: 0 0 20px rgba(154, 137, 208, 0.3);
 }
 
 .glow-amber-sm {
-  box-shadow: 0 0 12px rgba(245, 158, 11, 0.2);
+  box-shadow: 0 0 12px rgba(154, 137, 208, 0.2);
 }
 
 .no-scrollbar::-webkit-scrollbar {
@@ -96,7 +96,7 @@ body {
 
 /* High-Contrast Light Mode Markdown Typography Rules */
 .prose {
-  color: #0f172a !important;
+  color: #282438 !important;
 }
 
 .prose p,
@@ -105,38 +105,40 @@ body {
 .prose ol,
 .prose span,
 .prose div {
-  color: #0f172a !important;
+  color: #282438 !important;
 }
 
 .prose h1,
 .prose h2,
 .prose h3,
 .prose h4 {
-  color: #0284c7 !important;
+  color: #6956A5 !important;
   font-weight: 700 !important;
 }
 
 .prose strong,
 .prose b {
-  color: #d97706 !important;
+  color: #9A89D0 !important;
   font-weight: 700 !important;
 }
 
 .prose em,
 .prose i {
-  color: #475569 !important;
+  color: #6956A5 !important;
+  opacity: 0.8;
 }
 
 .prose code:not(pre code) {
-  background-color: #f1f5f9 !important;
-  color: #0f172a !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  background-color: #E5E0F4 !important;
+  color: #282438 !important;
+  border: 1px solid rgba(105, 86, 165, 0.2) !important;
   border-radius: 0.375rem !important;
   padding: 0.125rem 0.375rem !important;
 }
 
 .prose code {
-  background-color: #ffffff !important;
-  color: #0f172a !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  background-color: #FAF9FC !important;
+  color: #282438 !important;
+  border: 1px solid rgba(105, 86, 165, 0.1) !important;
 }
+

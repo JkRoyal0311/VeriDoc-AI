@@ -408,20 +408,20 @@ export function SplitLayout() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row h-screen w-full overflow-hidden bg-slate-50 text-slate-900 font-sans">
+    <div className="flex flex-col md:flex-row h-screen w-full overflow-hidden bg-[#FAF9FC] text-[#282438] font-sans">
       {/* Left Dark Sidebar Panel */}
-      <div className="w-full md:w-80 lg:w-96 h-[40vh] md:h-full border-b md:border-b-0 md:border-r border-slate-300 bg-white z-20 flex flex-col shadow-xl">
+      <div className="w-full md:w-80 lg:w-96 h-[40vh] md:h-full border-b md:border-b-0 md:border-r border-[#9A89D0]/30 bg-[#FAF9FC] z-20 flex flex-col shadow-xl">
         {/* Brand Header */}
-        <div className="p-4 border-b border-slate-300 bg-slate-100/90 backdrop-blur-xl flex items-center justify-between">
+        <div className="p-4 border-b border-[#9A89D0]/30 bg-[#E5E0F4]/90 backdrop-blur-xl flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="p-2.5 rounded-2xl bg-gradient-to-tr from-[#38BDF8] via-sky-600 to-indigo-700 shadow-lg text-white glow-cyan">
               <Cpu className="w-5 h-5 text-sky-100" />
             </div>
             <div>
-              <h1 className="text-base font-extrabold tracking-wide text-slate-900 flex items-center gap-1.5">
+              <h1 className="text-base font-extrabold tracking-wide text-[#282438] flex items-center gap-1.5">
                 <span>VeriDoc AI</span>
               </h1>
-              <p className="text-slate-500 text-xs truncate">Multi-Format RAG &amp; Intelligence Suite</p>
+              <p className="text-[#282438]/70 text-xs truncate">Multi-Format RAG &amp; Intelligence Suite</p>
             </div>
           </div>
 
@@ -431,8 +431,8 @@ export function SplitLayout() {
               onClick={() => setIsHistoryOpen(!isHistoryOpen)}
               className={`p-2 rounded-xl border transition-all cursor-pointer ${
                 isHistoryOpen
-                  ? "bg-[#38BDF8] text-[#0B0F19] border-[#38BDF8] shadow-md font-bold"
-                  : "glass-card text-slate-600 border-slate-300 hover:border-[#38BDF8]"
+                  ? "bg-[#6956A5] text-[#0B0F19] border-[#6956A5] shadow-md font-bold"
+                  : "glass-card text-slate-600 border-[#9A89D0]/30 hover:border-[#6956A5]"
               }`}
               title="Saved Sessions"
             >
@@ -442,7 +442,7 @@ export function SplitLayout() {
             {/* New Session Button */}
             <button
               onClick={handleNewChat}
-              className="p-2 rounded-xl glass-card text-slate-600 border border-slate-300 hover:border-[#38BDF8] hover:text-slate-900 transition-all cursor-pointer"
+              className="p-2 rounded-xl glass-card text-slate-600 border border-[#9A89D0]/30 hover:border-[#6956A5] hover:text-[#282438] transition-all cursor-pointer"
               title="New Chat Session"
             >
               <Plus className="w-4 h-4" />
@@ -458,24 +458,24 @@ export function SplitLayout() {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
-                className="absolute inset-0 glass-panel p-4 flex flex-col z-30 overflow-y-auto bg-white"
+                className="absolute inset-0 glass-panel p-4 flex flex-col z-30 overflow-y-auto bg-[#FAF9FC]"
               >
-                <div className="flex items-center justify-between mb-4 pb-2 border-b border-slate-300">
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#38BDF8] flex items-center space-x-2">
-                    <History className="w-4 h-4 text-[#38BDF8]" />
+                <div className="flex items-center justify-between mb-4 pb-2 border-b border-[#9A89D0]/30">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#6956A5] flex items-center space-x-2">
+                    <History className="w-4 h-4 text-[#6956A5]" />
                     <span>Saved Q&amp;A Sessions</span>
                   </h3>
 
                   <button
                     onClick={() => setIsHistoryOpen(false)}
-                    className="text-xs text-slate-400 hover:text-white cursor-pointer"
+                    className="text-xs text-[#9A89D0] hover:text-white cursor-pointer"
                   >
                     Close
                   </button>
                 </div>
 
                 {sessions.length === 0 ? (
-                  <p className="text-xs text-slate-500 text-center py-8">No saved sessions found.</p>
+                  <p className="text-xs text-[#282438]/70 text-center py-8">No saved sessions found.</p>
                 ) : (
                   <div className="space-y-2">
                     {sessions.map((s) => (
@@ -487,21 +487,21 @@ export function SplitLayout() {
                         }}
                         className={`p-3 rounded-xl border text-left cursor-pointer transition-all flex items-center justify-between group ${
                           s.id === currentSessionId
-                            ? "bg-[#38BDF8]/15 border-[#38BDF8]/40 text-[#38BDF8] shadow-md"
-                            : "glass-card text-slate-600 hover:border-[#38BDF8]/50 hover:text-slate-900"
+                            ? "bg-[#6956A5]/15 border-[#6956A5]/40 text-[#6956A5] shadow-md"
+                            : "glass-card text-slate-600 hover:border-[#6956A5]/50 hover:text-[#282438]"
                         }`}
                       >
                         <div className="flex items-center space-x-2.5 overflow-hidden">
-                          <MessageSquare className="w-4 h-4 shrink-0 text-[#38BDF8]" />
+                          <MessageSquare className="w-4 h-4 shrink-0 text-[#6956A5]" />
                           <div className="overflow-hidden">
                             <p className="text-xs font-semibold truncate">{s.title}</p>
-                            <p className="text-[10px] text-slate-400">{s.timestamp}</p>
+                            <p className="text-[10px] text-[#9A89D0]">{s.timestamp}</p>
                           </div>
                         </div>
 
                         <button
                           onClick={(e) => handleDeleteSession(s.id, e)}
-                          className="opacity-0 group-hover:opacity-100 p-1 text-slate-400 hover:text-rose-400 transition-opacity cursor-pointer"
+                          className="opacity-0 group-hover:opacity-100 p-1 text-[#9A89D0] hover:text-rose-400 transition-opacity cursor-pointer"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
                         </button>
@@ -522,7 +522,7 @@ export function SplitLayout() {
       </div>
 
       {/* Right Main Chat Panel */}
-      <div className="flex-1 h-[60vh] md:h-full flex flex-col relative z-0 bg-slate-50">
+      <div className="flex-1 h-[60vh] md:h-full flex flex-col relative z-0 bg-[#FAF9FC]">
         <ChatInterface
           messages={messages}
           aiState={aiState}

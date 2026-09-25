@@ -114,7 +114,7 @@ export function ChatInterface({
   };
 
   return (
-    <div className="flex flex-col h-full bg-slate-50 text-slate-900 relative overflow-hidden">
+    <div className="flex flex-col h-full bg-[#FAF9FC] text-[#282438] relative overflow-hidden">
       {/* Chat Messages Area */}
       <div
         ref={chatContainerRef}
@@ -124,20 +124,20 @@ export function ChatInterface({
       >
         {messages.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-center px-4 py-8">
-            <div className="p-4 rounded-3xl bg-gradient-to-tr from-[#38BDF8]/20 via-sky-900/30 to-[#F59E0B]/20 border border-slate-300 mb-6 shadow-xl glow-cyan">
-              <Cpu className="w-10 h-10 text-[#38BDF8] animate-pulse" />
+            <div className="p-4 rounded-3xl bg-gradient-to-tr from-[#38BDF8]/20 via-sky-900/30 to-[#F59E0B]/20 border border-[#9A89D0]/30 mb-6 shadow-xl glow-cyan">
+              <Cpu className="w-10 h-10 text-[#6956A5] animate-pulse" />
             </div>
 
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 mb-3 tracking-tight">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#282438] mb-3 tracking-tight">
               Welcome to VeriDoc AI
             </h2>
-            <p className="text-slate-500 max-w-md text-sm sm:text-base mb-8 leading-relaxed">
+            <p className="text-[#282438]/70 max-w-md text-sm sm:text-base mb-8 leading-relaxed">
               Multi-Format RAG &amp; Intelligence Suite. Upload single or multiple document assets to ask questions and extract instant insights.
             </p>
 
             {hasFile ? (
               <div className="w-full max-w-xl">
-                <p className="text-xs font-bold text-[#38BDF8] uppercase tracking-widest mb-4 flex items-center justify-center gap-1.5">
+                <p className="text-xs font-bold text-[#6956A5] uppercase tracking-widest mb-4 flex items-center justify-center gap-1.5">
                   <Sparkles className="w-3.5 h-3.5 text-[#F59E0B]" />
                   <span>Suggested Prompts for Uploaded Assets</span>
                 </p>
@@ -151,12 +151,12 @@ export function ChatInterface({
                         whileHover={{ scale: 1.02, y: -2 }}
                         whileTap={{ scale: 0.98 }}
                         onClick={() => handleChipClick(chip.prompt)}
-                        className="flex items-center space-x-3.5 p-4 rounded-2xl glass-card text-left transition-all duration-300 cursor-pointer group bg-slate-100 border border-slate-300 hover:border-[#38BDF8]/40"
+                        className="flex items-center space-x-3.5 p-4 rounded-2xl glass-card text-left transition-all duration-300 cursor-pointer group bg-[#E5E0F4] border border-[#9A89D0]/30 hover:border-[#6956A5]/40"
                       >
                         <div className="p-2.5 rounded-xl bg-gradient-to-tr from-[#38BDF8] to-indigo-600 text-white shadow-md group-hover:scale-110 transition-transform shrink-0">
                           <ChipIcon className="w-4 h-4 text-sky-100" />
                         </div>
-                        <span className="text-xs sm:text-sm font-semibold text-slate-900 group-hover:text-[#38BDF8] transition-colors">
+                        <span className="text-xs sm:text-sm font-semibold text-[#282438] group-hover:text-[#6956A5] transition-colors">
                           {chip.label}
                         </span>
                       </motion.button>
@@ -165,7 +165,7 @@ export function ChatInterface({
                 </div>
               </div>
             ) : (
-              <div className="px-4 py-3 rounded-2xl bg-slate-100 border border-slate-300 text-xs text-slate-500 max-w-sm">
+              <div className="px-4 py-3 rounded-2xl bg-[#E5E0F4] border border-[#9A89D0]/30 text-xs text-[#282438]/70 max-w-sm">
                 👈 Please drag &amp; drop or select files in the left sidebar to activate the AI Q&amp;A engine.
               </div>
             )}
@@ -177,22 +177,22 @@ export function ChatInterface({
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="p-4 rounded-2xl bg-gradient-to-r from-sky-950/40 via-[#0F172A] to-indigo-950/40 border border-[#38BDF8]/30 shadow-lg backdrop-blur-xl flex items-center justify-between text-xs sm:text-sm"
+                className="p-4 rounded-2xl bg-gradient-to-r from-sky-950/40 via-[#0F172A] to-indigo-950/40 border border-[#6956A5]/30 shadow-lg backdrop-blur-xl flex items-center justify-between text-xs sm:text-sm"
               >
                 <div className="flex items-center space-x-3">
-                  <div className="p-2 rounded-xl bg-[#38BDF8]/15 border border-[#38BDF8]/30 text-[#38BDF8] shrink-0">
-                    <Sparkles className="w-4 h-4 text-[#38BDF8]" />
+                  <div className="p-2 rounded-xl bg-[#6956A5]/15 border border-[#6956A5]/30 text-[#6956A5] shrink-0">
+                    <Sparkles className="w-4 h-4 text-[#6956A5]" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900 flex items-center gap-2">
+                    <h4 className="font-bold text-[#282438] flex items-center gap-2">
                       <span>🎉 Successfully Ingested {ingestedInfo?.filenames?.length || 1} Document(s)</span>
                     </h4>
-                    <p className="text-slate-500 text-xs mt-0.5">
+                    <p className="text-[#282438]/70 text-xs mt-0.5">
                       {ingestedInfo?.filenames?.join(", ") || "Uploaded files"} — indexed into {ingestedInfo?.numChunks || "active"} vector chunks. You can now ask questions.
                     </p>
                   </div>
                 </div>
-                <span className="px-3 py-1 rounded-full bg-[#38BDF8]/15 text-[#38BDF8] border border-[#38BDF8]/30 text-xs font-semibold whitespace-nowrap shrink-0 hidden sm:inline-block">
+                <span className="px-3 py-1 rounded-full bg-[#6956A5]/15 text-[#6956A5] border border-[#6956A5]/30 text-xs font-semibold whitespace-nowrap shrink-0 hidden sm:inline-block">
                   Vector Memory Active
                 </span>
               </motion.div>
@@ -231,9 +231,9 @@ export function ChatInterface({
                   whileHover={{ scale: 1.03, y: -2 }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => handleChipClick(chip.prompt)}
-                  className="flex items-center space-x-2 px-3.5 py-2 rounded-full glass-card text-xs font-semibold text-slate-900 bg-slate-100 border border-slate-300 hover:text-[#38BDF8] hover:border-[#38BDF8]/50 whitespace-nowrap transition-all duration-300 cursor-pointer group shadow-sm"
+                  className="flex items-center space-x-2 px-3.5 py-2 rounded-full glass-card text-xs font-semibold text-[#282438] bg-[#E5E0F4] border border-[#9A89D0]/30 hover:text-[#6956A5] hover:border-[#6956A5]/50 whitespace-nowrap transition-all duration-300 cursor-pointer group shadow-sm"
                 >
-                  <div className="p-1 rounded-full bg-[#38BDF8]/15 group-hover:bg-[#38BDF8] text-[#38BDF8] group-hover:text-[#0B0F19] transition-colors">
+                  <div className="p-1 rounded-full bg-[#6956A5]/15 group-hover:bg-[#6956A5] text-[#6956A5] group-hover:text-[#0B0F19] transition-colors">
                     <ChipIcon className="w-3.5 h-3.5" />
                   </div>
                   <span>{chip.label}</span>
@@ -245,10 +245,10 @@ export function ChatInterface({
       )}
 
       {/* Fixed Bottom Input Bar */}
-      <div className="p-4 bg-white/90 backdrop-blur-2xl border-t border-slate-300 relative z-20">
+      <div className="p-4 bg-[#FAF9FC]/90 backdrop-blur-2xl border-t border-[#9A89D0]/30 relative z-20">
         <form
           onSubmit={handleSubmit}
-          className="max-w-4xl mx-auto relative flex items-end glass-input rounded-2xl focus-within:border-[#38BDF8] transition-all overflow-hidden bg-slate-200 border border-slate-300"
+          className="max-w-4xl mx-auto relative flex items-end glass-input rounded-2xl focus-within:border-[#6956A5] transition-all overflow-hidden bg-[#E5E0F4] border border-[#9A89D0]/30"
         >
           <input
             type="file"
@@ -266,7 +266,7 @@ export function ChatInterface({
           <button
             type="button"
             onClick={() => fileInputRef.current?.click()}
-            className="p-4 text-slate-400 hover:text-[#38BDF8] transition-colors cursor-pointer"
+            className="p-4 text-[#9A89D0] hover:text-[#6956A5] transition-colors cursor-pointer"
             title="Attach extra files"
           >
             <Paperclip className="w-5 h-5" />
@@ -284,7 +284,7 @@ export function ChatInterface({
             }}
             placeholder={hasFile ? "Ask a question about your uploaded documents..." : "Please upload documents to begin..."}
             disabled={!hasFile}
-            className="flex-1 max-h-48 min-h-[56px] py-4 px-2 resize-none outline-none text-slate-900 bg-transparent text-sm sm:text-base placeholder:text-slate-500 disabled:opacity-50 font-medium"
+            className="flex-1 max-h-48 min-h-[56px] py-4 px-2 resize-none outline-none text-[#282438] bg-transparent text-sm sm:text-base placeholder:text-[#282438]/70 disabled:opacity-50 font-medium"
             rows={input.split("\n").length > 1 ? Math.min(input.split("\n").length, 5) : 1}
           />
 
@@ -304,7 +304,7 @@ export function ChatInterface({
             <button
               type="submit"
               disabled={!input.trim() || !hasFile}
-              className="p-4 text-[#38BDF8] hover:text-[#7DD3FC] hover:bg-[#38BDF8]/10 transition-all disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer"
+              className="p-4 text-[#6956A5] hover:text-[#7DD3FC] hover:bg-[#6956A5]/10 transition-all disabled:opacity-30 disabled:hover:bg-transparent cursor-pointer"
             >
               <Send className="w-5 h-5" />
             </button>

@@ -119,33 +119,33 @@ export function PDFUploader({
   const getFormatIcon = (filename: string) => {
     const lower = filename.toLowerCase();
     if (lower.endsWith(".xlsx") || lower.endsWith(".xls")) return <FileSpreadsheet className="w-4 h-4 text-[#F59E0B]" />;
-    if (lower.endsWith(".pdf")) return <FileText className="w-4 h-4 text-[#38BDF8]" />;
+    if (lower.endsWith(".pdf")) return <FileText className="w-4 h-4 text-[#6956A5]" />;
     if (lower.endsWith(".ppt") || lower.endsWith(".pptx")) return <Presentation className="w-4 h-4 text-[#F59E0B]" />;
     if (lower.endsWith(".png") || lower.endsWith(".jpg") || lower.endsWith(".jpeg") || lower.endsWith(".webp"))
-      return <ImageIcon className="w-4 h-4 text-[#38BDF8]" />;
+      return <ImageIcon className="w-4 h-4 text-[#6956A5]" />;
     if (lower.endsWith(".csv")) return <Table className="w-4 h-4 text-[#F59E0B]" />;
     if (lower.endsWith(".txt") || lower.endsWith(".docx") || lower.endsWith(".doc"))
-      return <FileCode className="w-4 h-4 text-[#38BDF8]" />;
-    return <FileText className="w-4 h-4 text-[#38BDF8]" />;
+      return <FileCode className="w-4 h-4 text-[#6956A5]" />;
+    return <FileText className="w-4 h-4 text-[#6956A5]" />;
   };
 
   return (
-    <div className="flex flex-col h-full w-full p-4 space-y-4 overflow-y-auto no-scrollbar bg-white">
+    <div className="flex flex-col h-full w-full p-4 space-y-4 overflow-y-auto no-scrollbar bg-[#FAF9FC]">
       {/* Drop Zone Box */}
       <div
         {...getRootProps()}
         className={`relative overflow-hidden w-full p-5 rounded-2xl border-2 border-dashed transition-all duration-300 cursor-pointer group ${
           isDragActive
-            ? "border-[#38BDF8] bg-slate-100 shadow-[0_0_30px_rgba(56,189,248,0.25)] scale-[1.01]"
+            ? "border-[#6956A5] bg-[#E5E0F4] shadow-[0_0_30px_rgba(56,189,248,0.25)] scale-[1.01]"
             : error
             ? "border-rose-500/80 bg-rose-950/20"
-            : "border-slate-300 hover:border-[#38BDF8]/60 bg-slate-100/70 hover:bg-slate-200/80 glass-panel"
+            : "border-[#9A89D0]/30 hover:border-[#6956A5]/60 bg-[#E5E0F4]/70 hover:bg-[#E5E0F4]/80 glass-panel"
         }`}
       >
         <input {...getInputProps()} />
 
         {/* Ambient Glow Orbs */}
-        <div className="absolute -top-12 -right-12 w-28 h-28 bg-[#38BDF8]/10 rounded-full blur-2xl group-hover:bg-[#38BDF8]/25 transition-all duration-500 pointer-events-none" />
+        <div className="absolute -top-12 -right-12 w-28 h-28 bg-[#6956A5]/10 rounded-full blur-2xl group-hover:bg-[#6956A5]/25 transition-all duration-500 pointer-events-none" />
         <div className="absolute -bottom-12 -left-12 w-28 h-28 bg-[#F59E0B]/10 rounded-full blur-2xl group-hover:bg-[#F59E0B]/20 transition-all duration-500 pointer-events-none" />
 
         <div className="relative z-10 flex flex-col items-center text-center">
@@ -155,53 +155,53 @@ export function PDFUploader({
                 <AlertCircle className="w-6 h-6" />
               </div>
               <p className="text-rose-400 text-xs font-semibold">{error}</p>
-              <p className="text-slate-400 text-[11px] mt-1">Click or drag additional files to retry</p>
+              <p className="text-[#9A89D0] text-[11px] mt-1">Click or drag additional files to retry</p>
             </>
           ) : (
             <>
-              <div className="p-3.5 rounded-2xl bg-gradient-to-tr from-[#38BDF8]/20 via-[#0F172A] to-[#F59E0B]/20 border border-slate-300 text-[#38BDF8] mb-2.5 group-hover:scale-110 group-hover:border-[#38BDF8]/50 transition-all duration-300 shadow-md">
+              <div className="p-3.5 rounded-2xl bg-gradient-to-tr from-[#38BDF8]/20 via-[#0F172A] to-[#F59E0B]/20 border border-[#9A89D0]/30 text-[#6956A5] mb-2.5 group-hover:scale-110 group-hover:border-[#6956A5]/50 transition-all duration-300 shadow-md">
                 <UploadCloud className="w-7 h-7" />
               </div>
 
-              <h3 className="font-bold text-slate-900 text-sm tracking-wide group-hover:text-[#38BDF8] transition-colors">
+              <h3 className="font-bold text-[#282438] text-sm tracking-wide group-hover:text-[#6956A5] transition-colors">
                 {isDragActive ? "Drop Files Here" : "Multi-File Batch Upload"}
               </h3>
-              <p className="text-slate-500 text-[11px] mt-1">Select or drop multiple files simultaneously</p>
+              <p className="text-[#282438]/70 text-[11px] mt-1">Select or drop multiple files simultaneously</p>
 
               {/* Supported Format Badges Grid */}
               <div className="mt-4 grid grid-cols-3 gap-1.5 w-full max-w-xs">
-                <div className="flex items-center justify-center space-x-1 px-2 py-1 rounded-lg bg-white/5 border border-slate-300 text-[10px] text-slate-900">
-                  <FileText className="w-3 h-3 text-[#38BDF8] shrink-0" />
+                <div className="flex items-center justify-center space-x-1 px-2 py-1 rounded-lg bg-[#FAF9FC]/5 border border-[#9A89D0]/30 text-[10px] text-[#282438]">
+                  <FileText className="w-3 h-3 text-[#6956A5] shrink-0" />
                   <span className="font-semibold">PDF</span>
                 </div>
 
-                <div className="flex items-center justify-center space-x-1 px-2 py-1 rounded-lg bg-white/5 border border-slate-300 text-[10px] text-slate-900">
+                <div className="flex items-center justify-center space-x-1 px-2 py-1 rounded-lg bg-[#FAF9FC]/5 border border-[#9A89D0]/30 text-[10px] text-[#282438]">
                   <Presentation className="w-3 h-3 text-[#F59E0B] shrink-0" />
                   <span className="font-semibold">PPTX</span>
                 </div>
 
-                <div className="flex items-center justify-center space-x-1 px-2 py-1 rounded-lg bg-white/5 border border-slate-300 text-[10px] text-slate-900">
-                  <ImageIcon className="w-3 h-3 text-[#38BDF8] shrink-0" />
+                <div className="flex items-center justify-center space-x-1 px-2 py-1 rounded-lg bg-[#FAF9FC]/5 border border-[#9A89D0]/30 text-[10px] text-[#282438]">
+                  <ImageIcon className="w-3 h-3 text-[#6956A5] shrink-0" />
                   <span className="font-semibold">JPG/PNG</span>
                 </div>
 
-                <div className="flex items-center justify-center space-x-1 px-2 py-1 rounded-lg bg-white/5 border border-slate-300 text-[10px] text-slate-900">
+                <div className="flex items-center justify-center space-x-1 px-2 py-1 rounded-lg bg-[#FAF9FC]/5 border border-[#9A89D0]/30 text-[10px] text-[#282438]">
                   <FileSpreadsheet className="w-3 h-3 text-[#F59E0B] shrink-0" />
                   <span className="font-semibold">XLSX</span>
                 </div>
 
-                <div className="flex items-center justify-center space-x-1 px-2 py-1 rounded-lg bg-white/5 border border-slate-300 text-[10px] text-slate-900">
-                  <FileCode className="w-3 h-3 text-[#38BDF8] shrink-0" />
+                <div className="flex items-center justify-center space-x-1 px-2 py-1 rounded-lg bg-[#FAF9FC]/5 border border-[#9A89D0]/30 text-[10px] text-[#282438]">
+                  <FileCode className="w-3 h-3 text-[#6956A5] shrink-0" />
                   <span className="font-semibold">DOCX</span>
                 </div>
 
-                <div className="flex items-center justify-center space-x-1 px-2 py-1 rounded-lg bg-white/5 border border-slate-300 text-[10px] text-slate-900">
+                <div className="flex items-center justify-center space-x-1 px-2 py-1 rounded-lg bg-[#FAF9FC]/5 border border-[#9A89D0]/30 text-[10px] text-[#282438]">
                   <Table className="w-3 h-3 text-[#F59E0B] shrink-0" />
                   <span className="font-semibold">CSV/TXT</span>
                 </div>
               </div>
 
-              <div className="mt-3 text-[10px] text-slate-500 px-2.5 py-0.5 rounded-full bg-slate-50 border border-slate-300">
+              <div className="mt-3 text-[10px] text-[#282438]/70 px-2.5 py-0.5 rounded-full bg-[#FAF9FC] border border-[#9A89D0]/30">
                 Resets vector memory on batch upload · Max 50MB/file
               </div>
             </>
@@ -216,13 +216,13 @@ export function PDFUploader({
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="w-full glass-card rounded-2xl border border-slate-300 bg-slate-100 overflow-hidden"
+            className="w-full glass-card rounded-2xl border border-[#9A89D0]/30 bg-[#E5E0F4] overflow-hidden"
           >
             {/* Header Bar with Batch Controls */}
-            <div className="p-3 bg-slate-200/70 border-b border-slate-300 flex items-center justify-between">
+            <div className="p-3 bg-[#E5E0F4]/70 border-b border-[#9A89D0]/30 flex items-center justify-between">
               <div className="flex items-center space-x-2">
-                <FolderOpen className="w-4 h-4 text-[#38BDF8]" />
-                <span className="text-xs font-bold text-slate-900">
+                <FolderOpen className="w-4 h-4 text-[#6956A5]" />
+                <span className="text-xs font-bold text-[#282438]">
                   Active Batch ({selectedFiles.length})
                 </span>
               </div>
@@ -230,7 +230,7 @@ export function PDFUploader({
               <div className="flex items-center space-x-2">
                 <button
                   onClick={() => setIsWidgetExpanded(!isWidgetExpanded)}
-                  className="p-1 rounded-lg text-slate-500 hover:text-slate-900 hover:bg-white/10 transition-colors cursor-pointer"
+                  className="p-1 rounded-lg text-[#282438]/70 hover:text-[#282438] hover:bg-[#FAF9FC]/10 transition-colors cursor-pointer"
                   title="Toggle file list"
                 >
                   {isWidgetExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -248,20 +248,20 @@ export function PDFUploader({
             </div>
 
             {/* Ingestion Status Summary */}
-            <div className="px-3 py-2 bg-slate-50 border-b border-slate-300 flex items-center justify-between text-xs">
+            <div className="px-3 py-2 bg-[#FAF9FC] border-b border-[#9A89D0]/30 flex items-center justify-between text-xs">
               <div className="flex items-center space-x-2">
                 {isIngesting ? (
-                  <Loader2 className="w-3.5 h-3.5 text-[#38BDF8] animate-spin" />
+                  <Loader2 className="w-3.5 h-3.5 text-[#6956A5] animate-spin" />
                 ) : (
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#38BDF8]" />
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#6956A5]" />
                 )}
-                <span className="text-slate-500 text-[11px] font-medium">
+                <span className="text-[#282438]/70 text-[11px] font-medium">
                   {isIngesting ? "Embedding Documents..." : "Vector Store Active"}
                 </span>
               </div>
 
               {ingestedInfo?.numChunks ? (
-                <span className="px-2 py-0.5 rounded bg-[#38BDF8]/15 border border-[#38BDF8]/30 text-[#7DD3FC] text-[10px] font-bold">
+                <span className="px-2 py-0.5 rounded bg-[#6956A5]/15 border border-[#6956A5]/30 text-[#7DD3FC] text-[10px] font-bold">
                   {ingestedInfo.numChunks} Chunks
                 </span>
               ) : isIngesting ? (
@@ -280,15 +280,15 @@ export function PDFUploader({
                 {selectedFiles.map((file, index) => (
                   <div
                     key={`${file.name}_${index}`}
-                    className="flex items-center justify-between p-2 rounded-xl bg-slate-200/50 border border-slate-200 hover:border-slate-400 transition-all group"
+                    className="flex items-center justify-between p-2 rounded-xl bg-[#E5E0F4]/50 border border-[#E5E0F4] hover:border-slate-400 transition-all group"
                   >
                     <div className="flex items-center space-x-2.5 overflow-hidden">
-                      <div className="p-1.5 rounded-lg bg-white/5 shrink-0">
+                      <div className="p-1.5 rounded-lg bg-[#FAF9FC]/5 shrink-0">
                         {getFormatIcon(file.name)}
                       </div>
                       <div className="overflow-hidden">
-                        <p className="text-xs font-semibold text-slate-900 truncate">{file.name}</p>
-                        <p className="text-[10px] text-slate-500">
+                        <p className="text-xs font-semibold text-[#282438] truncate">{file.name}</p>
+                        <p className="text-[10px] text-[#282438]/70">
                           {(file.size / (1024 * 1024)).toFixed(2)} MB
                         </p>
                       </div>
@@ -296,7 +296,7 @@ export function PDFUploader({
 
                     <button
                       onClick={() => handleRemoveFile(index)}
-                      className="p-1 rounded-lg text-slate-400 hover:text-rose-400 hover:bg-rose-500/20 transition-colors cursor-pointer"
+                      className="p-1 rounded-lg text-[#9A89D0] hover:text-rose-400 hover:bg-rose-500/20 transition-colors cursor-pointer"
                       title={`Remove ${file.name}`}
                     >
                       <X className="w-3.5 h-3.5" />
