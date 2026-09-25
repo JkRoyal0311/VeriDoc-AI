@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+python-dotenv
+pypdf
+langchain
+langchain-community
+langchain-chroma
+langchain-google-genai
+google-genai
+langgraph
+pydantic
+fastembed
+python-docx
+python-pptx
+pandas
+python-multipart
