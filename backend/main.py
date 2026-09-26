@@ -21,13 +21,26 @@ from app.agent.react_agent import get_agent_executor
 app = FastAPI(title="AI Q&A System API")
 
 # Enable CORS for the frontend
+origins = [
+    "http://localhost:3000",
+    "http://localhost:3001",
+    # Production Render frontend URL — update if your frontend URL changes
+    "https://veridoc-ai-9fpc.onrender.com",
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # In production, restrict this to the frontend URL
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+@app.get("/")
+def read_root():
+    """Health check endpoint — confirms the backend is active."""
+    return {"status": "Backend is active"}
 
 class MessageItem(BaseModel):
     role: str
